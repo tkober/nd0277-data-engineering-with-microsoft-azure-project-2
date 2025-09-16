@@ -11,7 +11,9 @@ CREATE TABLE dim_rider (
     first_name   VARCHAR,
     last_name    VARCHAR,
     birthday     DATE,
-    is_member    BOOLEAN
+    is_member    BOOLEAN,
+    account_start_date DATE,
+    account_end_date DATE
 );
 
 CREATE TABLE dim_station (
