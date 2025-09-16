@@ -56,7 +56,7 @@ CREATE TABLE fact_payment (
     payment_id    BIGINT PRIMARY KEY,
     payment_date  VARCHAR NOT NULL,          
     rider_id      BIGINT  NOT NULL,          
-    amount        DOUBLE PRECISION
+    amount        MONEY
 );
 
 CREATE TABLE fact_trip (
