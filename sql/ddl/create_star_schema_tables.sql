@@ -60,7 +60,7 @@ CREATE TABLE fact_payment (
 );
 
 CREATE TABLE fact_trip (
-    trip_id               BIGINT PRIMARY KEY,
+    trip_id               VARCHAR PRIMARY KEY,
     rider_id              BIGINT  NOT NULL,  
     start_station_id      VARCHAR,            
     end_station_id        VARCHAR,            
