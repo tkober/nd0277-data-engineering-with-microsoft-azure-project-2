@@ -7,7 +7,7 @@ As a first step I am going to transform the structure of the provided Divvy Data
 ![alt text](images/divvy_db.png)
 
 ## Star Schema
-In the following I will to describe the star schema with respect to given business requirements.
+In the following I will describe the star schema with respect to given business requirements.
 
 ![alt text](images/star_schema_diagram.png)
 
