@@ -1,10 +1,4 @@
-DROP TABLE IF EXISTS fact_trip;
-DROP TABLE IF EXISTS fact_payment;
-DROP TABLE IF EXISTS dim_date;
-DROP TABLE IF EXISTS dim_time;
-DROP TABLE IF EXISTS dim_station;
 DROP TABLE IF EXISTS dim_rider;
-
 CREATE TABLE dim_rider (
     rider_id     BIGINT PRIMARY KEY,
     address      VARCHAR,
@@ -16,6 +10,8 @@ CREATE TABLE dim_rider (
     account_end_date DATE
 );
 
+
+DROP TABLE IF EXISTS dim_station;
 CREATE TABLE dim_station (
     station_id   VARCHAR PRIMARY KEY,
     name         VARCHAR,
@@ -23,6 +19,8 @@ CREATE TABLE dim_station (
     longitude    DOUBLE PRECISION
 );
 
+
+DROP TABLE IF EXISTS dim_date;
 CREATE TABLE dim_date (
     date_string       VARCHAR PRIMARY KEY,
     date              DATE,
@@ -44,6 +42,8 @@ CREATE TABLE dim_date (
     is_weekend        BOOLEAN
 );
 
+
+DROP TABLE IF EXISTS dim_time;
 CREATE TABLE dim_time (
     time_string  VARCHAR PRIMARY KEY,
     time         TIME,
@@ -52,6 +52,8 @@ CREATE TABLE dim_time (
     second       BIGINT
 );
 
+
+DROP TABLE IF EXISTS fact_payment;
 CREATE TABLE fact_payment (
     payment_id    BIGINT PRIMARY KEY,
     payment_date  VARCHAR NOT NULL,          
@@ -59,6 +61,8 @@ CREATE TABLE fact_payment (
     amount        MONEY
 );
 
+
+DROP TABLE IF EXISTS fact_trip;
 CREATE TABLE fact_trip (
     trip_id               VARCHAR PRIMARY KEY,
     rider_id              BIGINT  NOT NULL,  
