@@ -1,8 +1,11 @@
 import psycopg2
+from dotenv import load_dotenv
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 import os
 
 def main():
+    load_dotenv()
+
     ########################################
     # Update connection string information #
     ########################################
