@@ -1,3 +1,15 @@
+IF OBJECT_ID('dbo.fact_trip') IS NOT NULL
+BEGIN
+    DROP EXTERNAL TABLE [dbo].[fact_trip];
+END
+
+CREATE EXTERNAL TABLE dbo.fact_trip
+WITH (
+    LOCATION    = 'dbo.fact_trip',
+    DATA_SOURCE = [project2adlfs_project2adl_dfs_core_windows_net],
+	FILE_FORMAT = [SynapseDelimitedTextFormat]
+)
+AS
 SELECT
     t.trip_id,
     t.rider_id,
@@ -17,3 +29,7 @@ SELECT
 FROM dbo.staging_trip AS t
 JOIN dbo.staging_rider AS r
   ON t.rider_id = r.rider_id;
+GO
+
+SELECT TOP 100 * FROM dbo.fact_trip;
+GO

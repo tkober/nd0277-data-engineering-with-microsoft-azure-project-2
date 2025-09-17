@@ -1,3 +1,15 @@
+IF OBJECT_ID('dbo.dim_date') IS NOT NULL
+BEGIN
+    DROP EXTERNAL TABLE [dbo].[dim_date];
+END
+
+CREATE EXTERNAL TABLE dbo.dim_date
+WITH (
+    LOCATION    = 'dbo.dim_date',
+    DATA_SOURCE = [project2adlfs_project2adl_dfs_core_windows_net],
+	FILE_FORMAT = [SynapseDelimitedTextFormat]
+)
+AS
 SELECT DISTINCT
     CONVERT(VARCHAR(8), CAST(a_date AS date), 112)            AS date_string,   -- 'YYYYMMDD'
     CAST(a_date AS date)                                      AS [date],
@@ -24,3 +36,7 @@ FROM (
     UNION ALL
     SELECT [date]   AS a_date FROM dbo.staging_payment
 ) s;
+GO
+
+SELECT TOP 100 * FROM dbo.dim_date;
+GO
