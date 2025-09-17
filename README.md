@@ -2,6 +2,10 @@
 
 # Project 2: Cloud Data Warehouse
 
+
+[![Watch step by step](images/video_thumbnail.png)](https://www.youtube.com/watch?v=lNVat3jB56M)
+
+
 As a first step I am going to transform the structure of the provided Divvy Dataset (see screenshot below) into a star schema. The entity `Account` is not provided in the dataset files for this project so it will not be covered in the DWH schema.
 
 ![alt text](images/divvy_db.png)
