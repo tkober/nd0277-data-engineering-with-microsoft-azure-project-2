@@ -126,7 +126,11 @@ In the *Security* tab I the admin credentials under *Authentication*.
 
 # 3 Create the Data in Azure PostgreSQL
 
-[4:34 Create the data in PostgreSQL](https://www.youtube.com/watch?v=lNVat3jB56M&t=274s)  
+This step is the same as creating the PostreSQL DB for local testing as described above 
+([4:34 Create the data in PostgreSQL](https://www.youtube.com/watch?v=lNVat3jB56M&t=274s)).
+Simply run the script [ProjectDataToPostgres.py](ProjectDataToPostgres.py) but this time with the credentials of the actual Azure PostgreSQL database.
+
+To verify that the tables have been created appropriately I simply connected my local db client to the Azure PostgreSQL DB.
 
 
 # 4 Extract the Data from Azure PostreSQL
