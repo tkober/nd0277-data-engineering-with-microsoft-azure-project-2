@@ -156,5 +156,10 @@ In the [azure/external_tables/](/azure/external_tables/) directory I put a copy 
 
 # 6 Transform the Data into Star Schema
 
-[13:47 Transform Data to Star Schema](https://www.youtube.com/watch?v=lNVat3jB56M&t=827s)  
-[15:01 Validate Star Schema against Staging Data](https://www.youtube.com/watch?v=lNVat3jB56M&t=901s)
+Finally the data from the staging tables can be transformed in the designed star schema ([13:47 Transform Data to Star Schema](https://www.youtube.com/watch?v=lNVat3jB56M&t=827s)). 
+In order to do so I created six SQL scripts in the *Develop* section. These can befound under [azure/cetas/](/azure/cetas/). Each contains a `CREATE EXTERNAL TABLE ... AS SELECT` or *CETAS*. For the select part of these I could mostly reuse my ingestion scripts from the local development. There I only needed to adjust some conversions (especially date and time related) from PostgreSQL to T-SQL.
+
+Afterwards the star schema tables can be found in the list of external tables.
+![](/images/screenshot_star_schema.png)
+
+As a last step I validated that the number of records in the star schema tables match the ones in the original dataset ([15:01 Validate Star Schema against Staging Data](https://www.youtube.com/watch?v=lNVat3jB56M&t=901s)).
