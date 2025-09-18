@@ -103,9 +103,26 @@ The file [ddl/create_star_schema_tables.sql](./sql/ddl/create_star_schema_tables
 
 # 2 Creating Azure Resources
 
-[0:05 Create Azure Database for PostgreSQL](https://www.youtube.com/watch?v=lNVat3jB56M&t=5s)  
-[1:20 Creating Azure Synapse Analytics Workspace](https://www.youtube.com/watch?v=lNVat3jB56M&t=80s)  
+First step is to set up the required resources in Azure, starting with the an *Azure Database for PostgreSQL* (see video section [0:05 Create Azure Database for PostgreSQL](https://www.youtube.com/watch?v=lNVat3jB56M&t=5s)).
 
+Here I tweaked the settings in *Basic* as follows:
+- *Workload type* set to **Development**
+- For *Compute+Storage* I set 'compute tier' to **burstable** and picked **Standard_B1ms** for *compute size* as the expected workload will be marginal
+- *Authentication method* restricted to **PostgresSQL authentication only** and provided *Administrator login* and *password*
+
+In the *Network* tab I made sure that
+- *Connectivity method* is set to **Public access**
+- the checkbox for *Allow public access to this resource through the internet [...]* is **checked**
+- the checkbox for *Allow public access from any Azure Service [...]* under *Firewall* is **checked**
+- and that the current client ip address is added as a firewall rule
+
+
+Next up was the creation of an *Azure Synapse Analytics* workspace ([1:20 Creating Azure Synapse Analytics Workspace](https://www.youtube.com/watch?v=lNVat3jB56M&t=80s)).
+
+Here I made sure that the *Region* is the same as the one used for the PostgreSQL server and I provided meaningful values for the *workspace name* and *Account name* and *Filesystem name* of the *Data Lake Storage Gen2*.
+
+In the *Security* tab I the admin credentials under *Authentication*.
+    
 
 # 3 Create the Data in Azure PostgreSQL
 
