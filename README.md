@@ -148,7 +148,10 @@ Afterwards one file for each of the four copied tables are available under *Azur
 
 # 5 Load the Data into External Tables
 
-[12:22 Load Data into External Tables](https://www.youtube.com/watch?v=lNVat3jB56M&t=742s)    
+Next step is to load the extracted data, currently present as CSV files in the Azure Blob storage, into staging tables ([12:22 Load Data into External Tables](https://www.youtube.com/watch?v=lNVat3jB56M&t=742s)). 
+
+For this I used the *Create External Table* wizzard to generate SQL scripts for each of the four files. 
+In the [azure/external_tables/](/azure/external_tables/) directory I put a copy of these generated scripts.
 
 
 # 6 Transform the Data into Star Schema
