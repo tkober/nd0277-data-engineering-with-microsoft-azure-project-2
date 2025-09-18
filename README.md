@@ -135,9 +135,15 @@ To verify that the tables have been created appropriately I simply connected my 
 
 # 4 Extract the Data from Azure PostreSQL
 
-[6:32 Create Linked Service for PostgreSQL](https://www.youtube.com/watch?v=lNVat3jB56M&t=392s)  
-[8:03 Create Linked Service for Azure Blob Storage](https://www.youtube.com/watch?v=lNVat3jB56M&t=483s)  
-[8:54 Extract Data from PostgreSQL](https://www.youtube.com/watch?v=lNVat3jB56M&t=534s)  
+In order to extract the data it is necessary to define the source and the destionation. 
+For this I defined two **Linked Services** in Synapse Analytics Studio. One for the PostgreSQL database ([6:32 Create Linked Service for PostgreSQL](https://www.youtube.com/watch?v=lNVat3jB56M&t=392s)) to copy the data from and one for the Azure Blob Storage ([8:03 Create Linked Service for Azure Blob Storage](https://www.youtube.com/watch?v=lNVat3jB56M&t=483s)) which is the destinatoin.
+
+Afterwards I can use these Linked Services in the *Copy Data Tool* to build a *run once Task*
+([8:54 Extract Data from PostgreSQL](https://www.youtube.com/watch?v=lNVat3jB56M&t=534s)). 
+
+Afterwards one file for each of the four copied tables are available under *Azure Blob Storage* as well as *Azure Data Lake Storage Gen2* in the Data section of Synapse Studio.
+
+![](/images/screenshot_adl_gen2.png)
 
 
 # 5 Load the Data into External Tables
