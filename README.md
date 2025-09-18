@@ -67,8 +67,39 @@ Here it is possible to join the member riders from `Dim_Rider` with the `Fact_Tr
 
 ## Local Preparation
 
-In order to test the 
+In order to test the creation of the PostgreSQL dataset and the star schema I added a [`docker-compose.yml`](/postgres/docker-compose.yaml) file in the [postgres](/postgres/) directory. This sets up a simple PostrgeSQL DB using default port `5432`.
 
+Other parameters like initial can be configured via environment variable:
+
+```
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
+```
+
+You can start it by running 
+
+```
+cd postgres
+docker compose up
+```
+
+Now you can fill this PostgreSQL DB by running the [ProjectDataToPostgres.py](./ProjectDataToPostgres.py) script. I modified the providing script to be configurable by using environment varialbes. This is to make effortles configuration changes for different environments and als prevents you from exposing your Azure credentials to git.
+
+If you want to run the script with the provided dockerized PostgreSQL DB you need to disable `sslmode`.
+
+Best practice is to create a `.env` file like the following example.
+```
+AZURE_POSTGRES_HOST="127.0.0.1"
+AZURE_POSTGRES_USER="postgres"
+AZURE_POSTGRES_PASSWORD="postgres"
+AZURE_POSTGRES_SSL_MODE="require"
+```
+
+### Testing the Star Schema
+
+In order to test and iterate my star schema upfront without using any cloud resources I created a bunch of `.sql` files in the [sql](./sql/) directory.
+The file [ddl/create_star_schema_tables.sql](./sql/ddl/create_star_schema_tables.sql) creates the tables of the star schema, while the ones under [ingestion](./sql/ingestion/) fill the tables based on the generated DB from [ProjectDataToPostgres.py](./ProjectDataToPostgres.py).
 
 # 2 Creating Azure Resources
 
