@@ -1,6 +1,6 @@
 #### ND0277 - Data Engineering with Microsoft Azure
 
-# Project 2: Cloud Data Warehouse
+# Project 2: Building an Azure Data Warehouse for Bike Share Data Analytics
 
 
 ## Prerequisites
